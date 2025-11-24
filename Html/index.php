@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <Form action="../Php/Login.php" method="post">
+    <Form action="../Php/User_DB/Login.php" method="post">
         Email <input type="email" Name="Email">
         Password <input type="password" Name="Password">
         sumbit

@@ -5,8 +5,7 @@ if(isset($_POST['submit'])) {
 
     $email = $_POST['Email'];
     $pass = $_POST['Password'];
-    $conn = mysqli_connect("localhost", "root", "", "Heritage", "3307");
-
+    require_once '../Config/config.php'; 
     if(!$conn) {
         die(mysqli_connect_error());
     }
