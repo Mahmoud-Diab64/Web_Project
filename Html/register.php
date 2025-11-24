@@ -34,6 +34,7 @@
                 <input type="password" name="Password" id="password" class="form-control mt-1 mb-3" placeholder="Enter your password" required>
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" name="ConfirmPassword" id="confirm-password" class="form-control mt-1 mb-3" placeholder="Confirm your password" required>
+                <input type="text" name="Role" value="user" hidden>
                 <button type="submit" class=" border border-white rounded py-2 button-color w-100 mt-3 font">Register</button>
                 <!-- هنربط صفحة تسجيل الدخول هنا -->
                 <p class="text-center text-secondary mt-3">Already have an account? <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 orange-color">Log in</a></p>
