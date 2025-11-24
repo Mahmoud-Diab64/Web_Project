@@ -31,18 +31,18 @@
             <section class="form ">
                 <h2 class="font "><b>Welcom Back</b></h2>
                 <p class="text-secondary">Log in to continue your journey through history</p>
-                <form action="#">
+                <form method="Post" action="../Php/User_DB/Login.php">
                     <label for="email">Email or Username</label>
                     <input type="email" name="Email" id="email" class="form-control mt-1 mb-3"
                         placeholder="Enter your email or username" required>
                     <label for="password">Password</label>
                     <input type="password" name="Password" id="password" class="form-control mt-1 mb-3"
                         placeholder="Enter your password" required>
-                    <button type="submit" class=" border border-white rounded py-2 button-color w-100 mt-3 font">Log
+                    <button type="submit" name="submit" class=" border border-white rounded py-2 button-color w-100 mt-3 font">Log
                         In</button>
                         <!-- هنربط صفحة Register  -->
                     <p class="text-center text-secondary mt-3">Don't have an account?
-                        <a href="" class="link-offset-2 link-underline link-underline-opacity-0 orange-color">Sign
+                        <a href="register.php" class="link-offset-2 link-underline link-underline-opacity-0 orange-color">Sign
                             Up</a>
                     </p>
                 </form>

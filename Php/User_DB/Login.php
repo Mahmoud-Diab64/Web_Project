@@ -2,29 +2,43 @@
 session_start();
 
 if(isset($_POST['submit'])) {
-
     $email = $_POST['Email'];
     $pass = $_POST['Password'];
+    
     require_once '../Config/config.php'; 
-    if(!$conn) {
-        die(mysqli_connect_error());
-    }
-
-    $sql = "SELECT * FROM users WHERE Email='$email'";
-    $result = $conn->query($sql);
+    
+    $sql = "SELECT * FROM users WHERE Email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+        
+        
+        
 
-        if ($pass === $user["Password"]) {
+
+        
+        if (password_verify($pass, $user["Password"])) {
             $_SESSION["Name"] = $user["Name"];
-            echo "<script>alert('Login successful!'); window.location='index.html';</script>";
-            header('location:../Html/Home.php');
+            $_SESSION["User_id"] = $user["User_id"];
+            $_SESSION["Role"] = $user["Role"];
+            $_SESSION["Email"] = $user["Email"];
+            
+            header('Location: ../../Html/Home.php');
+            exit();
         } else {
             echo "<script>alert('Incorrect password!'); window.history.back();</script>";
+            exit();
         }
     } else {
         echo "<script>alert('No user found with this email!'); window.history.back();</script>";
+        exit();
     }
+    
+    $stmt->close();
+    $conn->close();
 }
 ?>

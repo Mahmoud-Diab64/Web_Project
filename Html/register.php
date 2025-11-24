@@ -18,14 +18,14 @@
                 <h1 class="fs-5 font ">Heirtage</h1>
             </div>
             <!-- هنربط صفحة تسجيل الدخول هنا -->
-            <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 "><button class="btn  button-color rounded font text-white">Log In</button></a>
+            <a href="login.php" class="link-offset-2 link-underline link-underline-opacity-0 "><button class="btn  button-color rounded font text-white">Log In</button></a>
         </div>
     </nav>
     <section class="py-4">
         <div class="width m-auto border rounded shadow py-4 px-4 ">
             <h2 class="font fs-2 text-center"><b>Create Your Account</b></h2>
             <p class="font my-2 text-secondary text-center">Save your favorite artifacts and create collections.</p>
-            <form  method="GET" >
+            <form  method="Post" action="../Php/User_DB/Register.php" >
                 <label for="username">Username</label>
                 <input type="text" name="Name" id="username" class="form-control mt-1 mb-3" placeholder="e.g., history_enthusiate" required>
                 <label for="email">Email Address</label>
@@ -35,9 +35,9 @@
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" name="ConfirmPassword" id="confirm-password" class="form-control mt-1 mb-3" placeholder="Confirm your password" required>
                 <input type="text" name="Role" value="user" hidden>
-                <button type="submit" class=" border border-white rounded py-2 button-color w-100 mt-3 font">Register</button>
+                <button name="submit" type="submit" class=" border border-white rounded py-2 button-color w-100 mt-3 font">Register</button>
                 <!-- هنربط صفحة تسجيل الدخول هنا -->
-                <p class="text-center text-secondary mt-3">Already have an account? <a href="#" class="link-offset-2 link-underline link-underline-opacity-0 orange-color">Log in</a></p>
+                <p class="text-center text-secondary mt-3">Already have an account? <a href="login.php" class="link-offset-2 link-underline link-underline-opacity-0 orange-color">Log in</a></p>
             </form>
         </div>
     </section>
