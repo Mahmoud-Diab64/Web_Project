@@ -2,18 +2,16 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-
-    $name = $_POST['Name'];
     $site = $_POST['site'];
 
         require_once '../Config/config.php';
 
-        $sql = "INSERT INTO categories (Cate_Name, Img) VALUES (?, ?)";
+        $sql = "INSERT INTO location ('site') VALUES (?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $name, $imgName);
+        $stmt->bind_param("ss", $site);
 
         if($stmt->execute()) {
-            echo "<script>alert('Category Added Successfully'); 
+            echo "<script>alert('location Added Successfully'); 
             window.location='../../Html/index.php';</script>";
         } else {
             echo "<script>alert('Database Error: " . $stmt->error . "');</script>";
