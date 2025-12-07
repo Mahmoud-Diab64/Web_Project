@@ -13,12 +13,12 @@ if (isset($_POST['submit'])) {
         require_once '../Config/config.php';
 
         $sql = "INSERT INTO categories (Cate_Name, Img) VALUES (?, ?)";
-        $stmt = $conn->prepare($sql);
+        $stmt = $con->prepare($sql);
         $stmt->bind_param("ss", $name, $imgName);
 
         if($stmt->execute()) {
             echo "<script>alert('Category Added Successfully'); 
-            window.location='../../Html/index.php';</script>";
+            window.location='../../Html/Show_Catigries.php#';</script>";
         } else {
             echo "<script>alert('Database Error: " . $stmt->error . "');</script>";
         }
