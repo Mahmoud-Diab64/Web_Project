@@ -6,16 +6,13 @@
     <title>Admin Dashboard - Egyptian Heritage Explorer</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
 
-    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
@@ -70,11 +67,8 @@
         </button>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Dashboard Section -->
         <div id="dashboard-section" class="section-card active">
-            <!-- Top Bar -->
             <div class="top-bar">
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
                     <div>
@@ -88,7 +82,6 @@
                 </div>
             </div>
 
-            <!-- Stats Cards -->
             <div class="stats-grid">
                 <div class="stat-card users" onclick="showSection('users')">
                     <div class="stat-icon">
@@ -132,7 +125,7 @@
             </div>
         </div>
 
-        <!-- Users Section -->
+       
         <div id="users-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-users me-2"></i>Manage Users</h3>
@@ -166,7 +159,6 @@
             </div>
         </div>
 
-        <!-- Artifacts Section -->
         <div id="artifacts-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-monument me-2"></i>Manage Heritage Artifacts</h3>
@@ -200,7 +192,6 @@
             </div>
         </div>
 
-        <!-- Categories Section -->
         <div id="categories-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-th-large me-2"></i>Manage Categories</h3>
@@ -233,7 +224,6 @@
             </div>
         </div>
 
-        <!-- Locations Section -->
         <div id="locations-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-map-marker-alt me-2"></i>Manage Locations</h3>
@@ -268,12 +258,10 @@
         </div>
     </main>
 
-    <!-- Mobile Menu Toggle -->
     <button class="mobile-menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Add User Modal -->
     <div class="modal fade" id="addUserModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -312,7 +300,6 @@
         </div>
     </div>
 
-    <!-- Add Artifact Modal -->
     <div class="modal fade" id="addArtifactModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -364,7 +351,6 @@
         </div>
     </div>
 
-    <!-- Add Category Modal -->
     <div class="modal fade" id="addCategoryModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -392,7 +378,6 @@
         </div>
     </div>
 
-    <!-- Add Location Modal -->
     <div class="modal fade" id="addLocationModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -428,9 +413,7 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Dashboard JavaScript -->
     <script src="js/dashboard.js"></script>
 </body>
 </html>

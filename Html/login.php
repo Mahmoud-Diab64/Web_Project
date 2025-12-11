@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Egyptian Heritage Explorer</title>
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
     
  <link rel="stylesheet" href="../css/LoginStyle.css">
 </head>
 <body>
 
-    <!-- Back to Home Button -->
     <a href="index.php" class="back-home">
         <i class="fas fa-arrow-left"></i>
         <span>Back to Home</span>
     </a>
 
-    <!-- Login Container -->
     <div class="login-container">
-        <!-- Header -->
         <div class="login-header">
             <div class="logo-icon">
                 <i class="fas fa-landmark"></i>
@@ -31,10 +26,8 @@
             <p>Login to explore Egyptian heritage</p>
         </div>
         
-        <!-- Body -->
         <div class="login-body">
             <form id="loginForm" action="../Php/User_DB/Login.php" method="post">
-                <!-- Email Field -->
                 <div class="form-group">
                     <label class="form-label">Email Address</label>
                     <div class="input-group">
@@ -43,7 +36,6 @@
                     </div>
                 </div>
                 
-                <!-- Password Field -->
                 <div class="form-group">
                     <label class="form-label">Password</label>
                     <div class="input-group">
@@ -53,7 +45,6 @@
                     </div>
                 </div>
                 
-                <!-- Options -->
                 <div class="form-options">
                     <label class="remember-me">
                         <input type="checkbox">
@@ -62,18 +53,15 @@
                     <a href="#" class="forgot-password">Forgot Password?</a>
                 </div>
                 
-                <!-- Login Button -->
                 <button type="submit" class="btn-login" name="Login_Submit">
                     Login
                 </button>
             </form>
             
-            <!-- Divider -->
             <div class="divider">
                 <span>Or continue with</span>
             </div>
             
-            <!-- Social Login -->
             <div class="social-login">
                 <button class="social-btn google">
                     <i class="fab fa-google"></i>
@@ -85,7 +73,6 @@
                 </button>
             </div>
             
-            <!-- Signup Link -->
             <div class="signup-link">
                 Don't have an account? <a href="register.php">Sign Up</a>
             </div>

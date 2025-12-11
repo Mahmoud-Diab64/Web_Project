@@ -26,7 +26,6 @@
             font-weight: 700;
         }
         
-        /* Navbar Styling */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -97,7 +96,6 @@
             color: white;
         }
         
-        /* Page Header */
         .page-header {
             height: 50vh;
             background: var(--gradient-overlay),
@@ -163,12 +161,10 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* Main Content Section */
         .content-section {
             padding: 80px 0;
         }
         
-        /* Sidebar Styling */
         .filters-sidebar {
             background: white;
             border-radius: 20px;
@@ -273,7 +269,6 @@
             box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
         }
         
-        /* Results Info */
         .results-header {
             display: flex;
             justify-content: space-between;
@@ -303,7 +298,6 @@
             border-color: var(--primary-gold);
         }
         
-        /* Artifact Cards */
         .artifact-card {
             background: white;
             border-radius: 20px;
@@ -413,7 +407,6 @@
             transform: translateY(-2px);
         }
         
-        /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
@@ -446,7 +439,6 @@
             border-color: var(--primary-gold);
         }
         
-        /* Footer */
         footer {
             background: linear-gradient(135deg, var(--secondary-blue), #0f2537);
             color: white;
@@ -466,7 +458,6 @@
             background: linear-gradient(90deg, var(--primary-gold), var(--accent-terracotta), var(--primary-gold));
         }
         
-        /* Scroll to top button */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -494,7 +485,6 @@
             display: flex;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .page-header h1 {
                 font-size: 2.5rem;

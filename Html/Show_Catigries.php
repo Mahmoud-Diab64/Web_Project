@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/ShowCatigories.css">
 </head>
 <body>
-    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
@@ -65,12 +64,10 @@
         </button>
     </aside>
 
-    <!-- Mobile Menu Toggle -->
     <button class="mobile-menu-toggle" id="menuToggle">
         <i class="fas fa-bars"></i>
     </button>
 
-    <!-- Main Content -->
     <div class="main-content">
         <div class="container-fluid">
             <div class="page-header">

@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Egyptian Heritage Explorer</title>
     
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -398,15 +395,12 @@
 </head>
 <body>
 
-    <!-- Back to Home Button -->
     <a href="index.php" class="back-home">
         <i class="fas fa-arrow-left"></i>
         <span>Back to Home</span>
     </a>
 
-    <!-- Register Container -->
     <div class="register-container">
-        <!-- Header -->
         <div class="register-header">
             <div class="logo-icon">
                 <i class="fas fa-landmark"></i>
@@ -415,7 +409,6 @@
             <p>Join us to explore Egyptian heritage</p>
         </div>
         
-        <!-- Body -->
         <div class="register-body">
             <form id="registerForm" action="../Php/User_DB/Register.php" method="post">
                 <div class="row g-3 mb-3">
@@ -436,7 +429,6 @@
                     </div>
                 </div>
                 
-                <!-- Email -->
                 <div class="mb-3">
                     <label class="form-label">Email Address</label>
                     <div class="input-group-custom">
@@ -445,7 +437,6 @@
                     </div>
                 </div>
                 
-                <!-- Password -->
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <div class="input-group-custom">
@@ -458,7 +449,6 @@
                     </div>
                 </div>
                 
-                <!-- Confirm Password -->
                 <div class="mb-3">
                     <label class="form-label">Confirm Password</label>
                     <div class="input-group-custom">
@@ -468,7 +458,6 @@
                     </div>
                 </div>
                 
-                <!-- Terms & Conditions -->
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="terms" required>
                     <label class="form-check-label" for="terms">
@@ -476,18 +465,15 @@
                     </label>
                 </div>
                 
-                <!-- Register Button -->
                 <button type="submit" class="btn btn-register" name="Register_Submit">
                     Create Account
                 </button>
             </form>
             
-            <!-- Divider -->
             <div class="divider">
                 <span>Or register with</span>
             </div>
             
-            <!-- Social Login -->
             <div class="row g-3">
                 <div class="col-6">
                     <button class="social-btn google w-100">
@@ -503,14 +489,12 @@
                 </div>
             </div>
             
-            <!-- Login Link -->
             <div class="login-link">
                 Already have an account? <a href="login.php">Login</a>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>

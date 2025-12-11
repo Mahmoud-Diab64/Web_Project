@@ -362,7 +362,6 @@
             transform: translateX(-5px);
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .login-container {
                 margin: 0 15px;
@@ -384,7 +383,6 @@
             }
         }
         
-        /* Loading Animation */
         .btn-login.loading {
             pointer-events: none;
             position: relative;

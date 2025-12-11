@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pharaonic Artifacts - Egyptian Heritage Explorer</title>
     
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/HomeStyle.css">
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -47,7 +42,6 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <section class="page-header">
         <div class="page-header-content" data-aos="fade-up">
             <h1>Pharaonic Era</h1>
@@ -61,12 +55,10 @@
         </div>
     </section>
 
-    <!-- Main Content -->
     <section class="content-section">
         <div class="container">
             <div class="row g-4">
                 
-                <!-- Sidebar Filters -->
                 <div class="col-lg-3" data-aos="fade-right">
                     <aside class="filters-sidebar">
                         <div class="filter-group">
@@ -113,7 +105,6 @@
                     </aside>
                 </div>
 
-                <!-- Main Content Area -->
                 <div class="col-lg-9">
                     <div class="results-header" data-aos="fade-left">
                         <span class="results-count">Showing 1-6 of 24 Artifacts</span>
@@ -125,7 +116,6 @@
                     </div>
 
                     <div class="row g-4">
-                        <!-- Artifact Card 1 -->
                         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="artifact-card">
                                 <div class="artifact-img-container">
@@ -140,7 +130,6 @@
                             </div>
                         </div>
 
-                        <!-- Artifact Card 2 -->
                         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="artifact-card">
                                 <div class="artifact-img-container">
@@ -155,7 +144,6 @@
                             </div>
                         </div>
 
-                        <!-- Artifact Card 3 -->
                         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="artifact-card">
                                 <div class="artifact-img-container">
@@ -170,7 +158,6 @@
                             </div>
                         </div>
 
-                        <!-- Artifact Card 4 -->
                         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                             <div class="artifact-card">
                                 <div class="artifact-img-container">
@@ -185,7 +172,6 @@
                             </div>
                         </div>
 
-                        <!-- Artifact Card 5 -->
                         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                             <div class="artifact-card">
                                 <div class="artifact-img-container">
@@ -200,7 +186,6 @@
                             </div>
                         </div>
 
-                        <!-- Artifact Card 6 -->
                         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="artifact-card">
                                 <div class="artifact-img-container">
@@ -216,7 +201,6 @@
                         </div>
                     </div>
 
-                    <!-- Pagination -->
                     <div class="pagination" data-aos="fade-up">
                         <div class="page-item"><i class="fas fa-chevron-left"></i></div>
                         <div class="page-item active">1</div>
@@ -229,21 +213,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <p style="margin: 0; opacity: 0.8;">&copy; 2025 Egyptian Heritage Explorer. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>

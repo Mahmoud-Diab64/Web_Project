@@ -26,7 +26,6 @@
             font-weight: 700;
         }
         
-        /* Navbar */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -92,7 +91,6 @@
             color: white;
         }
         
-        /* Hero Section */
         .contact-hero {
             height: 50vh;
             background: var(--gradient-overlay),
@@ -135,7 +133,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
-        /* Contact Section */
         .contact-section {
             padding: 100px 0;
             background: var(--bg-light);
@@ -196,7 +193,6 @@
             color: var(--primary-gold);
         }
         
-        /* Contact Form */
         .contact-form-card {
             background: white;
             border-radius: 20px;
@@ -261,7 +257,6 @@
             box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
         }
         
-        /* Map Section */
         .map-section {
             padding: 100px 0;
             background: white;
@@ -310,7 +305,6 @@
             margin-top: 1.5rem;
         }
         
-        /* Footer */
         footer {
             background: linear-gradient(135deg, var(--secondary-blue), #0f2537);
             color: white;
@@ -383,7 +377,7 @@
             color: rgba(255,255,255,0.6);
         }
         
-        /* Success Message */
+         Success Message */
         .success-message {
             background: linear-gradient(135deg, #10b981, #059669);
             color: white;
@@ -409,7 +403,6 @@
             }
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -428,7 +421,6 @@
             }
         }
         
-        /* Scroll to top button */
         .scroll-top {
             position: fixed;
             bottom: 30px;

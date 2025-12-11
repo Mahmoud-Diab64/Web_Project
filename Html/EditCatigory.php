@@ -29,13 +29,11 @@
                 <input type="hidden" name="cate_id" id="cateId">
                 <input type="hidden" name="old_img" id="oldImg">
 
-                <!-- Current Image -->
                 <div class="current-image" id="currentImageDiv">
                     <p class="fw-bold mb-2">Current Image:</p>
                     <img id="currentImage" src="" alt="Current Category Image">
                 </div>
 
-                <!-- Category Name -->
                 <div class="mb-4">
                     <label class="form-label">
                         <i class="fas fa-tag"></i>
@@ -49,7 +47,6 @@
                            required>
                 </div>
 
-                <!-- New Image Upload (Optional) -->
                 <div class="mb-4">
                     <label class="form-label">
                         <i class="fas fa-image"></i>
@@ -74,7 +71,6 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
                 <button type="submit" name="submit" class="btn-submit">
                     <i class="fas fa-save"></i>
                     Update Category

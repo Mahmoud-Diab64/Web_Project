@@ -20,7 +20,6 @@
         </div>
 
         <form action="../Php/Category/category.php" method="POST" enctype="multipart/form-data">
-            <!-- Category Name -->
             <div class="mb-4">
                 <label class="form-label">
                     <i class="fas fa-tag"></i>
@@ -33,7 +32,6 @@
                        required>
             </div>
 
-            <!-- Image Upload -->
             <div class="mb-4">
                 <label class="form-label">
                     <i class="fas fa-image"></i>
@@ -59,7 +57,6 @@
                 </div>
             </div>
 
-            <!-- Submit Button -->
             <button type="submit" name="submit" class="btn-submit">
                 <i class="fas fa-plus-circle"></i>
                 Add Category

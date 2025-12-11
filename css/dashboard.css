@@ -1,4 +1,3 @@
-/* css/style.css - Egyptian Heritage Dashboard Styles */
 
 :root {
     --primary-gold: #D4AF37;
@@ -28,7 +27,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel', serif;
 }
 
-/* Sidebar */
 .sidebar {
     position: fixed;
     left: 0;
@@ -134,14 +132,12 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--danger);
 }
 
-/* Main Content */
 .main-content {
     margin-left: var(--sidebar-width);
     padding: 30px;
     min-height: 100vh;
 }
 
-/* Top Bar */
 .top-bar {
     background: white;
     padding: 20px 30px;
@@ -150,7 +146,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
 }
 
-/* Stats Cards */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -211,7 +206,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
 }
 
-/* Section */
 .section-card {
     background: white;
     padding: 30px;
@@ -270,7 +264,6 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
 }
 
-/* Table */
 .table-responsive {
     border-radius: 10px;
     overflow: hidden;
@@ -316,7 +309,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
