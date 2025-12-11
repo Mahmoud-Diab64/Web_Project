@@ -1,9 +1,7 @@
 <?php
-// update_Locations.php
 header('Content-Type: application/json');
 require_once '../Config/config.php';
 
-// Check if form was submitted
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode([
         'success' => false,
@@ -12,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Validate inputs
 if (!isset($_POST['id']) || !isset($_POST['site'])) {
     echo json_encode([
         'success' => false,
@@ -24,7 +21,6 @@ if (!isset($_POST['id']) || !isset($_POST['site'])) {
 $id = intval($_POST['id']);
 $site = trim($_POST['site']);
 
-// Validate site name
 if (empty($site)) {
     echo json_encode([
         'success' => false,
@@ -34,7 +30,6 @@ if (empty($site)) {
 }
 
 try {
-    // Check if location exists
     $checkSql = "SELECT Loc_ID FROM location WHERE Loc_ID = ?";
     $checkStmt = $con->prepare($checkSql);
     
@@ -56,7 +51,6 @@ try {
     
     $checkStmt->close();
     
-    // Update location
     $updateSql = "UPDATE location SET Site = ? WHERE Loc_ID = ?";
     $updateStmt = $con->prepare($updateSql);
     

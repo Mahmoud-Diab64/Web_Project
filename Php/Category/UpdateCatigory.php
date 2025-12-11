@@ -1,9 +1,7 @@
 <?php
-// Php/Category/UpdateCategory.php
 session_start();
 header('Content-Type: application/json');
 
-// Log errors for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
@@ -21,7 +19,6 @@ if (!$con) {
 }
 
 try {
-    // التحقق من البيانات المطلوبة
     if (!isset($_POST['cate_id']) || !isset($_POST['Name']) || !isset($_POST['old_img'])) {
         echo json_encode(['success' => false, 'message' => 'Missing required fields']);
         exit();
@@ -31,7 +28,6 @@ try {
     $name = trim($_POST['Name']);
     $old_img = $_POST['old_img'];
     
-    // التحقق من البيانات
     if (empty($name)) {
         echo json_encode(['success' => false, 'message' => 'Category name is required']);
         exit();
@@ -42,7 +38,6 @@ try {
         exit();
     }
     
-    // التحقق من عدم تكرار الاسم (مع استثناء الـ category الحالية)
     $checkSql = "SELECT Cate_Id FROM categories WHERE Cate_Name = ? AND Cate_Id != ?";
     $checkStmt = $con->prepare($checkSql);
     
@@ -63,22 +58,19 @@ try {
     }
     $checkStmt->close();
     
-    // معالجة الصورة الجديدة (إن وجدت)
-    $img_name = $old_img; // احتفظ بالصورة القديمة افتراضياً
+    $img_name = $old_img; 
     
     if (isset($_FILES['Img']) && $_FILES['Img']['error'] === UPLOAD_ERR_OK) {
         $imgTmpName = $_FILES['Img']['tmp_name'];
         $imgSize = $_FILES['Img']['size'];
         $imgOriginalName = $_FILES['Img']['name'];
         
-        // التحقق من حجم الصورة (5MB max)
         if ($imgSize > 5 * 1024 * 1024) {
             echo json_encode(['success' => false, 'message' => 'Image size must be less than 5MB']);
             $con->close();
             exit();
         }
         
-        // التحقق من نوع الصورة
         $allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $imgType = finfo_file($finfo, $imgTmpName);
@@ -90,16 +82,12 @@ try {
             exit();
         }
         
-        // إنشاء اسم فريد للصورة الجديدة
         $imgExtension = pathinfo($imgOriginalName, PATHINFO_EXTENSION);
         $uniqueImgName = uniqid('cat_', true) . '.' . $imgExtension;
         
-        // تحديد المسار الصحيح
         $uploadPath = "../../UploadsForCategory/" . $uniqueImgName;
         
-        // رفع الصورة الجديدة
         if (move_uploaded_file($imgTmpName, $uploadPath)) {
-            // حذف الصورة القديمة
             $oldImgPath = "../../UploadsForCategory/" . $old_img;
             if (file_exists($oldImgPath) && $old_img !== $uniqueImgName) {
                 @unlink($oldImgPath);
@@ -113,7 +101,6 @@ try {
         }
     }
     
-    // تحديث البيانات
     $sql = "UPDATE categories SET Cate_Name = ?, Img = ? WHERE Cate_Id = ?";
     $stmt = $con->prepare($sql);
     

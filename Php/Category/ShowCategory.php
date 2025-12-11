@@ -1,5 +1,4 @@
 <?php
-// Php/Category/ShowCategory.php
 header('Content-Type: application/json');
 
 require_once '../Config/config.php';
@@ -13,7 +12,6 @@ if (!$con) {
 }
 
 try {
-    // جلب الـ categories مع عدد الـ artifacts لكل category
     $sql = "SELECT c.*, COUNT(a.Art_Id) as artifact_count 
             FROM categories c
             LEFT JOIN artifacts a ON c.Cate_Id = a.Cate_Id

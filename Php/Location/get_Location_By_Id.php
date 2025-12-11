@@ -1,9 +1,7 @@
 <?php
-// get_Location_By_Id.php
 header('Content-Type: application/json');
 require_once '../Config/config.php';
 
-// Get location ID from URL
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     echo json_encode([
         'success' => false,
@@ -15,7 +13,6 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 $id = intval($_GET['id']);
 
 try {
-    // Fetch location data
     $sql = "SELECT Loc_ID as id, Site as site FROM location WHERE Loc_ID = ?";
     $stmt = $con->prepare($sql);
     

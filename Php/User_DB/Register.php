@@ -5,7 +5,6 @@ if(isset($_POST['Register_Submit'])) {
     $pass = $_POST['Password'];
     $confirmPassword = $_POST['ConfirmPassword'];
     
-    // Check if passwords match
     if($pass != $confirmPassword) {
         echo "<script>alert('Password Is not Equal Confirm Password'); window.history.back();</script>";
         exit();

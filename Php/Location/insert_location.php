@@ -1,9 +1,7 @@
 <?php
-// Php/Location/update_Locations.php
 session_start();
 header('Content-Type: application/json');
 
-// Log errors for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
@@ -21,7 +19,6 @@ if (!$con) {
 }
 
 try {
-    // التحقق من البيانات المطلوبة
     if (!isset($_POST['id']) || !isset($_POST['site'])) {
         echo json_encode(['success' => false, 'message' => 'Missing required fields']);
         exit();
@@ -30,7 +27,6 @@ try {
     $id = (int)$_POST['id'];
     $site = trim($_POST['site']);
     
-    // التحقق من البيانات
     if (empty($site)) {
         echo json_encode(['success' => false, 'message' => 'Location name is required']);
         exit();
@@ -41,7 +37,6 @@ try {
         exit();
     }
     
-    // التحقق من عدم تكرار الاسم (مع استثناء الـ location الحالية)
     $checkSql = "SELECT Loc_ID FROM location WHERE Site = ? AND Loc_ID != ?";
     $checkStmt = $con->prepare($checkSql);
     
@@ -62,7 +57,6 @@ try {
     }
     $checkStmt->close();
     
-    // تحديث البيانات
     $sql = "UPDATE location SET Site = ? WHERE Loc_ID = ?";
     $stmt = $con->prepare($sql);
     

@@ -4,7 +4,6 @@ session_start();
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     
-    // Validation
     if ($id <= 0) {
         echo "<script>
             alert('Invalid location ID');
@@ -15,7 +14,6 @@ if (isset($_GET['id'])) {
     
     require_once '../Config/config.php';
     
-    // Check if location exists before deleting
     $check_sql = "SELECT Loc_ID FROM location WHERE Loc_ID = ?";
     $check_stmt = $con->prepare($check_sql);
     $check_stmt->bind_param("i", $id);
@@ -33,7 +31,6 @@ if (isset($_GET['id'])) {
     }
     $check_stmt->close();
     
-    // Delete location
     $sql = "DELETE FROM location WHERE Loc_ID = ?";
     $stmt = $con->prepare($sql);
     

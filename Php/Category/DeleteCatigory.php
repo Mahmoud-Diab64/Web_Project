@@ -1,5 +1,4 @@
 <?php
-// Php/Category/DeleteCategory.php
 session_start();
 header('Content-Type: application/json');
 
@@ -18,7 +17,6 @@ if (!$con) {
 try {
     $cate_id = $_POST['cate_id'];
     
-    // تحقق إذا كانت الفئة مستخدمة في artifacts
     $checkSql = "SELECT COUNT(*) as count FROM artifacts WHERE Cate_Id = ?";
     $checkStmt = $con->prepare($checkSql);
     $checkStmt->bind_param("i", $cate_id);
@@ -35,7 +33,6 @@ try {
         exit();
     }
     
-    // جلب اسم الصورة قبل الحذف
     $imgSql = "SELECT Img FROM categories WHERE Cate_Id = ?";
     $imgStmt = $con->prepare($imgSql);
     $imgStmt->bind_param("i", $cate_id);
@@ -44,13 +41,11 @@ try {
     $imgData = $imgResult->fetch_assoc();
     $imgStmt->close();
     
-    // حذف الـ category
     $sql = "DELETE FROM categories WHERE Cate_Id = ?";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("i", $cate_id);
     
     if ($stmt->execute()) {
-        // حذف الصورة من المجلد
         if ($imgData && !empty($imgData['Img'])) {
             $imgPath = "../../../UploadsForCategory/" . $imgData['Img'];
             if (file_exists($imgPath)) {
