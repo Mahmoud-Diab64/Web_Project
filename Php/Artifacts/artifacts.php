@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
                 (Loc_Id, Cate_Id, Name, Decrption, Short_Desc, Img, FoundAt, Art_Age)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        $stmt = $conn->prepare($sql);
+        $stmt = $con->prepare($sql);
         $stmt->bind_param("iisssssi",
             $locId,
             $cateId,
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         }
 
         $stmt->close();
-        $conn->close();
+        $con->close();
 
     } else {
         echo "<script>alert('Error uploading image');</script>";
