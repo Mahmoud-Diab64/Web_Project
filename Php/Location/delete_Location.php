@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
     if ($stmt === false) {
         echo "<script>
             alert('Error preparing query: " . $con->error . "');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/location.php';
         </script>";
         exit;
     }
@@ -47,19 +47,19 @@ if (isset($_GET['id'])) {
     if ($stmt->execute()) {
         echo "<script>
             alert('Location deleted successfully ✅');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/location.php';
         </script>";
     } else {
         echo "<script>
             alert('Database error: " . $stmt->error . "');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/location.php';
         </script>";
     }
     
     $stmt->close();
     $con->close();
 } else {
-    header("Location: ../Frontend/locations.php");
+    header("Location: ../../Html/location.php");
     exit;
 }
 ?>
