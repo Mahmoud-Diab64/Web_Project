@@ -12,12 +12,13 @@ if (!$con) {
 }
 
 try {
+    
     $sql = "SELECT a.*,
         c.Cate_Name,
-        l.Loc_Name
+        l.Site as Loc_Name
         FROM artifacts a
         LEFT JOIN categories c ON a.Cate_Id = c.Cate_Id
-        LEFT JOIN locations l ON a.Loc_Id = l.Loc_Id
+        LEFT JOIN location l ON a.Loc_Id = l.Loc_ID
         ORDER BY a.Art_Id DESC;";
     
     $result = $con->query($sql);

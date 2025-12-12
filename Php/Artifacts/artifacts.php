@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
     $name        = $_POST['Name'];
     $locId       = $_POST['Loc_Id'];      
     $cateId      = $_POST['Cate_Id'];     
-    $desc        = $_POST['Decrption'];
+    $desc        = $_POST['Descrption'];
     $shortDesc   = $_POST['Short_Desc'];
     $foundAt     = $_POST['FoundAt'];
     $artAge      = $_POST['Art_Age'];
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
         require_once '../Config/config.php';
 
         $sql = "INSERT INTO artifacts 
-                (Loc_Id, Cate_Id, Name, Decrption, Short_Desc, Img, FoundAt, Art_Age)
+                (Loc_Id, Cate_Id, Name, Descrption, Short_Desc, Img, FoundAt, Art_Age)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = $con->prepare($sql);
