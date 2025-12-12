@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     if ($id <= 0) {
         echo "<script>
             alert('Invalid location ID');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/Location.php';
         </script>";
         exit;
     }
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     if ($check_result->num_rows === 0) {
         echo "<script>
             alert('Location not found');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/Location.php';
         </script>";
         $check_stmt->close();
         $con->close();
@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
     if ($stmt === false) {
         echo "<script>
             alert('Error preparing query: " . $con->error . "');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/Location.php';
         </script>";
         exit;
     }
@@ -47,19 +47,19 @@ if (isset($_GET['id'])) {
     if ($stmt->execute()) {
         echo "<script>
             alert('Location deleted successfully ✅');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/Location.php';
         </script>";
     } else {
         echo "<script>
             alert('Database error: " . $stmt->error . "');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/Location.php';
         </script>";
     }
     
     $stmt->close();
     $con->close();
 } else {
-    header("Location: ../Frontend/locations.php");
+    header("Location: ../../Html/Location.php");
     exit;
 }
 ?>
