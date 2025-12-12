@@ -96,7 +96,7 @@
     </form>
 
     <div class="back-link">
-        <a href="Show_Artifacts.php">
+        <a href="Show_art.php">
             <i class="fas fa-arrow-left"></i> Back to Artifacts
         </a>
     </div>

@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 
     if ($stmt->execute()) {
         echo "<script>alert('Artifact Updated Successfully');
-        window.location='../../Html/Show_Artifacts.php';</script>";
+        window.location='../../Html/Show_art.php';</script>";
     } else {
         echo "<script>alert('Database Error: " . $stmt->error . "');</script>";
     }

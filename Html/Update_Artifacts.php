@@ -20,7 +20,7 @@ if (!$artId) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/Add_Category.css">
+    <link rel="stylesheet" href="../css/Edit_Catigory.css">
 </head>
 <body>
 
@@ -113,7 +113,7 @@ if (!$artId) {
     </form>
 
     <div class="back-link">
-        <a href="Show_Artifacts.php">
+        <a href="Show_art.php">
             <i class="fas fa-arrow-left"></i> Back to Artifacts
         </a>
     </div>

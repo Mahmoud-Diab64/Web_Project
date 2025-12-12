@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 
     if (!$con) {
         echo "<script>alert('Database connection failed');
-        window.location='../../Html/Show_Artifacts.php';</script>";
+        window.location='../../Html/Show_art.php';</script>";
         exit();
     }
 
@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     
     if (!$stmt) {
         echo "<script>alert('Database Error: " . $con->error . "');
-        window.location='../../Html/Show_Artifacts.php';</script>";
+        window.location='../../Html/Show_art.php';</script>";
         exit();
     }
     
@@ -34,16 +34,16 @@ if (isset($_POST['submit'])) {
         }
         
         echo "<script>alert('Artifact Deleted Successfully');
-        window.location='../../Html/Show_Artifacts.php';</script>";
+        window.location='../../Html/Show_art.php';</script>";
     } else {
         echo "<script>alert('Database Error: " . $stmt->error . "');
-        window.location='../../Html/Show_Artifacts.php';</script>";
+        window.location='../../Html/Show_art.php';</script>";
     }
 
     $stmt->close();
     $con->close();
 
 } else {
-    echo "<script>alert('Invalid request'); window.location='../../Html/Show_Artifacts.php';</script>";
+    echo "<script>alert('Invalid request'); window.location='../../Html/Show_art.php';</script>";
 }
 ?>

@@ -33,19 +33,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Show_art.php" class="nav-link">
                     <i class="fas fa-monument"></i>
                     <span>Manage Artifacts</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="Show_Catigories.php" class="nav-link active">
+                <a href="Show_Catigries.php" class="nav-link active">
                     <i class="fas fa-th-large"></i>
                     <span>Manage Categories</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="Location.php" class="nav-link">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Manage Locations</span>
                 </a>

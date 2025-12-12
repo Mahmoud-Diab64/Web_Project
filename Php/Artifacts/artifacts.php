@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 
         if ($stmt->execute()) {
             echo "<script>alert('Artifact Added Successfully');
-            window.location='../../Html/index.php';</script>";
+            window.location='../../Html/show_art.php';</script>";
         } else {
             echo "<script>alert('Database Error: " . $stmt->error . "');</script>";
         }

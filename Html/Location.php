@@ -36,7 +36,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="artifacts.php" class="nav-link">
+                <a href="Show_art.php" class="nav-link">
                     <i class="fas fa-monument"></i>
                     <span>Manage Artifacts</span>
                 </a>
