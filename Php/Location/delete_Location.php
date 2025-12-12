@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     if ($id <= 0) {
         echo "<script>
             alert('Invalid location ID');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/location.php';
         </script>";
         exit;
     }
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     if ($check_result->num_rows === 0) {
         echo "<script>
             alert('Location not found');
-            window.location='../Frontend/locations.php';
+            window.location='../../Html/location.php';
         </script>";
         $check_stmt->close();
         $con->close();
