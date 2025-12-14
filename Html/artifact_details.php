@@ -426,12 +426,12 @@
 
             // Format data with fallbacks
             const category = artifact.Cate_Name || 'Unknown Category';
-            const period = artifact.Period || 'Unknown Period';
-            const location = artifact.Loc_Name || 'Unknown Location';
-            const discoveryDate = artifact.Discovery_date || 'Unknown';
+            const period = artifact.Art_Age || 'Unknown Period';
+            const location = artifact.Site || 'Unknown Location';
+            const discoveryDate = artifact.FoundAt || 'Unknown';
             const material = artifact.Material || 'Unknown';
             const dimensions = artifact.Dimensions || 'Not specified';
-            const description = artifact.Description || 'No description available for this artifact.';
+            const description = artifact.Descrption || 'No description available for this artifact.';
 
             contentArea.innerHTML = `
                 <a href="javascript:history.back()" class="back-button mb-4" data-aos="fade-right">
@@ -444,7 +444,7 @@
                         <div class="col-lg-6">
                             <div class="artifact-image-section">
                                 <img src="${imageUrl}" 
-                                     alt="${artifact.Art_Name}" 
+                                     alt="${artifact.Name}" 
                                      class="artifact-main-image"
                                      onerror="this.src='https://via.placeholder.com/800x600?text=No+Image'">
                                 <span class="image-badge">${period}</span>
@@ -456,9 +456,9 @@
                                     <i class="fas fa-tag"></i> ${category}
                                 </span>
                                 
-                                <h1 class="artifact-title">${artifact.Art_Name}</h1>
+                                <h1 class="artifact-title">${artifact.Name}</h1>
                                 
-                                <p class="artifact-description">${description}</p>
+                                <p class="artifact-description">${artifact.Descrption}</p>
 
                                 <div class="info-grid">
                                     <div class="info-card" data-aos="fade-up" data-aos-delay="100">
