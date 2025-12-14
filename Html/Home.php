@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+if (data.success && data.artifacts && data.artifacts.length > 0) {
+                    allAr<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +27,7 @@
                         <a class="nav-link" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php">Catigories</a>
+                        <a class="nav-link active" href="artifacts.php">Artifacts</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -154,6 +155,17 @@
         // Load artifacts on page load
         document.addEventListener('DOMContentLoaded', function() {
             loadArtifacts(categoryId);
+            
+            // If category is selected from URL, update the category filter
+            if (categoryId) {
+                // Wait for filters to load, then set the category
+                setTimeout(() => {
+                    const categorySelect = document.getElementById('categoryFilter');
+                    if (categorySelect) {
+                        categorySelect.value = categoryId;
+                    }
+                }, 500);
+            }
         });
 
         // Load artifacts from database
@@ -226,12 +238,18 @@
         // Load filter options dynamically
         function loadFilterOptions() {
             // Get unique categories
-            const categories = [...new Set(allArtifacts.map(a => a.Cate_Name).filter(Boolean))];
+            const categories = [...new Set(allArtifacts.map(a => ({id: a.Cate_Id, name: a.Cate_Name})).filter(c => c.name))];
+            const uniqueCategories = Array.from(new Map(categories.map(c => [c.id, c])).values());
+            
             const categorySelect = document.getElementById('categoryFilter');
-            categories.forEach(cat => {
+            uniqueCategories.forEach(cat => {
                 const option = document.createElement('option');
-                option.value = cat;
-                option.textContent = cat;
+                option.value = cat.id;
+                option.textContent = cat.name;
+                // Select the category if it matches the URL parameter
+                if (categoryId && cat.id == categoryId) {
+                    option.selected = true;
+                }
                 categorySelect.appendChild(option);
             });
 
@@ -257,6 +275,11 @@
                 `;
                 periodContainer.appendChild(label);
             });
+            
+            // If category is selected, apply filter immediately
+            if (categoryId) {
+                applyFilters();
+            }
         }
 
         // Display artifacts with pagination
@@ -456,7 +479,7 @@
             const categoryFilter = document.getElementById('categoryFilter').value;
             const locationFilter = document.getElementById('locationFilter').value;
             const periodFilters = Array.from(document.querySelectorAll('.period-filter:checked'))
-            .map(cb => cb.value);
+                                       .map(cb => cb.value);
 
             filteredArtifacts = allArtifacts.filter(art => {
                 // Search filter
@@ -464,8 +487,8 @@
                     art.Art_Name.toLowerCase().includes(searchTerm) ||
                     (art.Art_Description && art.Art_Description.toLowerCase().includes(searchTerm));
 
-                // Category filter
-                const matchesCategory = !categoryFilter || art.Cate_Name === categoryFilter;
+                // Category filter - compare with Cate_Id
+                const matchesCategory = !categoryFilter || art.Cate_Id == categoryFilter;
 
                 // Location filter
                 const matchesLocation = !locationFilter || art.Loc_Name === locationFilter;
