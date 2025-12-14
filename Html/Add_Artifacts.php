@@ -1,5 +1,4 @@
 <?php
-// Add_Artifact.php
 ?>
 
 <!DOCTYPE html>
