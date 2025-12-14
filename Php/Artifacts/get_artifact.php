@@ -1,5 +1,4 @@
 <?php
-// get_artifact.php - للحصول على بيانات artifact واحد
 header('Content-Type: application/json');
 
 require_once '../Config/config.php';
@@ -23,7 +22,6 @@ if ($artId <= 0) {
 }
 
 try {
-    // Get the full data with joins - using correct column names
     $sql = "SELECT a.*,
         c.Cate_Name,
         l.Site as Loc_Name

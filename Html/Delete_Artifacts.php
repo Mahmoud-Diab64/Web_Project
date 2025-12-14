@@ -1,5 +1,4 @@
 <?php
-// Delete_Artifacts.php
 $artId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$artId) {
@@ -15,7 +14,6 @@ if (!$artId) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Artifact - Egyptian Heritage</title>
 
-    <!-- Bootstrap & FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
@@ -209,7 +207,6 @@ if (!$artId) {
 <script>
 const artId = <?php echo $artId; ?>;
 
-// Fetch artifact data
 fetch(`../Php/Artifacts/get_artifact.php?id=${artId}`)
     .then(res => res.json())
     .then(data => {

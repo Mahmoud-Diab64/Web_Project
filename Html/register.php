@@ -42,7 +42,6 @@
             font-family: 'Cinzel', serif;
         }
         
-        /* Back to Home Button */
         .back-home {
             position: fixed;
             top: 30px;
@@ -262,7 +261,6 @@
             text-decoration: underline;
         }
         
-        /* Register Button */
         .btn-register {
             width: 100%;
             padding: 16px;
@@ -288,7 +286,6 @@
             transform: translateY(0);
         }
         
-        /* Divider */
         .divider {
             display: flex;
             align-items: center;
@@ -309,7 +306,6 @@
             padding: 0 20px;
         }
         
-        /* Social Login */
         .social-btn {
             padding: 14px;
             border: 2px solid #e0e0e0;
@@ -344,7 +340,6 @@
             font-size: 1.2rem;
         }
         
-        /* Login Link */
         .login-link {
             text-align: center;
             color: #666;
@@ -362,7 +357,6 @@
             text-decoration: underline;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             body {
                 padding: 20px 10px;
@@ -498,7 +492,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Password Toggle
         const togglePassword = document.getElementById('togglePassword');
         const passwordInput = document.getElementById('passwordInput');
         const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
@@ -518,7 +511,6 @@
             this.classList.toggle('fa-eye-slash');
         });
         
-        // Password Strength Checker
         const passwordStrength = document.getElementById('passwordStrength');
         const strengthBar = passwordStrength.querySelector('.strength-bar');
         
@@ -549,7 +541,6 @@
             }
         });
         
-        // Form Validation
         const registerForm = document.getElementById('registerForm');
         
         registerForm.addEventListener('submit', function(e) {

@@ -22,7 +22,6 @@
             min-height: 100vh;
         }
 
-        /* Navbar */
         .navbar {
             background: rgba(26, 26, 46, 0.95);
             backdrop-filter: blur(10px);
@@ -70,7 +69,6 @@
             box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
         }
 
-        /* Details Section */
         .details-section {
             padding: 4rem 0;
             min-height: calc(100vh - 200px);
@@ -207,7 +205,6 @@
             transform: translateX(-5px);
         }
 
-        /* Loading */
         .loading-container {
             display: flex;
             flex-direction: column;
@@ -230,7 +227,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Error */
         .error-container {
             text-align: center;
             padding: 4rem 2rem;
@@ -254,7 +250,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Footer */
         footer {
             background: rgba(26, 26, 46, 0.95);
             padding: 2rem 0;
@@ -263,7 +258,6 @@
             border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* Scroll Top */
         .scroll-top {
             position: fixed;
             bottom: 30px;
@@ -291,7 +285,6 @@
             transform: translateY(-5px);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .artifact-image-section {
                 height: 400px;
@@ -344,7 +337,6 @@
     <section class="details-section">
         <div class="container">
             <div id="contentArea">
-                <!-- Content will be loaded here -->
             </div>
         </div>
     </section>
@@ -362,21 +354,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true
         });
 
-        // Configuration
         const API_URL = '../Php/Artifacts/get_artifact.php';
         const UPLOAD_PATH = '../UploadsForArtifacts/';
 
-        // Get artifact ID from URL
         const params = new URLSearchParams(window.location.search);
         const artifactId = params.get('id');
 
-        // Load artifact on page load
         document.addEventListener('DOMContentLoaded', function() {
             if (!artifactId) {
                 showError('No Artifact Selected', 'Please select an artifact to view details.');
@@ -386,11 +374,9 @@
             loadArtifact(artifactId);
         });
 
-        // Load artifact details
         async function loadArtifact(id) {
             const contentArea = document.getElementById('contentArea');
             
-            // Show loading
             contentArea.innerHTML = `
                 <div class="loading-container">
                     <div class="spinner"></div>
@@ -415,16 +401,13 @@
             }
         }
 
-        // Display artifact details
         function displayArtifact(artifact) {
             const contentArea = document.getElementById('contentArea');
             
-            // Prepare image URL
             const imageUrl = artifact.Img && artifact.Img.trim() !== '' 
                 ? UPLOAD_PATH + artifact.Img 
                 : 'https://via.placeholder.com/800x600?text=No+Image';
 
-            // Format data with fallbacks
             const category = artifact.Cate_Name || 'Unknown Category';
             const period = artifact.Art_Age || 'Unknown Period';
             const location = artifact.Site || 'Unknown Location';
@@ -499,11 +482,9 @@
                 </div>
             `;
 
-            // Re-initialize AOS
             AOS.refresh();
         }
 
-        // Show error message
         function showError(title, message) {
             const contentArea = document.getElementById('contentArea');
             contentArea.innerHTML = `
@@ -521,7 +502,6 @@
             `;
         }
 
-        // Scroll to top functionality
         window.addEventListener('scroll', function() {
             const scrollTop = document.getElementById('scrollTop');
             if (window.scrollY > 300) {

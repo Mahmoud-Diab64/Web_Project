@@ -404,7 +404,6 @@
 
     <section class="content-section">
         <div class="container">
-            <!-- Search Box -->
             <div class="search-container" data-aos="fade-up">
                 <div class="search-box-wrapper">
                     <i class="fas fa-search"></i>
@@ -417,7 +416,6 @@
                 </div>
             </div>
 
-            <!-- Results Header -->
             <div class="results-header" data-aos="fade-up">
                 <span class="results-count" id="resultsCount">Loading artifacts...</span>
                 <select class="sort-select" id="sortSelect" onchange="sortArtifacts()">
@@ -427,7 +425,6 @@
                 </select>
             </div>
 
-            <!-- Artifacts Grid -->
             <div class="row g-4" id="artifactsGrid">
                 <div class="col-12">
                     <div class="text-center py-5">
@@ -439,7 +436,6 @@
                 </div>
             </div>
 
-            <!-- Pagination -->
             <div class="pagination" id="paginationContainer" style="display: none;"></div>
         </div>
     </section>
@@ -467,7 +463,6 @@
         let currentPage = 1;
         const itemsPerPage = 9;
 
-        // Get category from URL
         const params = new URLSearchParams(window.location.search);
         const categoryId = params.get('category');
 
@@ -487,7 +482,6 @@
                 if (data.success && data.artifacts && data.artifacts.length > 0) {
                     allArtifacts = data.artifacts;
                     
-                    // Filter by category if provided
                     if (categoryId) {
                         allArtifacts = allArtifacts.filter(art => art.Cate_Id == categoryId);
                         if (allArtifacts.length > 0) {
@@ -524,20 +518,16 @@
             const paginatedArtifacts = filteredArtifacts.slice(startIndex, endIndex);
 
             grid.innerHTML = paginatedArtifacts.map((art, index) => {
-                // Debug: log the artifact to see what data we're getting
                 console.log('Artifact data:', art);
                 
                 const image = art.Img && art.Img.trim() !== '' 
                     ? UPLOAD_PATH + art.Img 
                     : 'https://via.placeholder.com/400x300/d4af37/ffffff?text=No+Image';
                 
-                // Check all possible name fields
                 const name = art.Name || art.Artifact_Name || art.name || 'Unnamed Artifact';
                 
-                // Check all possible description fields
                 const description = art.Short_Desc || art.Artifact_Description || art.description || 'No description available';
                 
-                // Check all possible period fields
                 const period = art.Art_Age || art.Artifact_Era || art.era || 'Unknown Period';
 
                 return `

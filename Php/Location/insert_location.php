@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
 
-// Check if request method is POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['error'] = 'Invalid request method';
     header('Location: ../../Admin/Add_Location.php');
@@ -14,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 require_once '../Config/config.php';
 
-// Check database connection
 if (!$con) {
     $_SESSION['error'] = 'Database connection failed: ' . mysqli_connect_error();
     header('Location: ../../Html/Add_Location.php');
@@ -22,7 +20,6 @@ if (!$con) {
 }
 
 try {
-    // Validate input
     if (!isset($_POST['site']) || empty(trim($_POST['site']))) {
         $_SESSION['error'] = 'Location name is required';
         header('Location: ../../Html/Add_Location.php');
@@ -31,7 +28,6 @@ try {
     
     $site = trim($_POST['site']);
     
-    // Validate site name length
     if (strlen($site) < 2) {
         $_SESSION['error'] = 'Location name must be at least 2 characters';
         header('Location: ../../Html/Add_Location.php');
@@ -44,7 +40,6 @@ try {
         exit();
     }
     
-    // Check if location already exists
     $checkSql = "SELECT Loc_ID FROM location WHERE Site = ?";
     $checkStmt = $con->prepare($checkSql);
     
@@ -67,7 +62,6 @@ try {
     }
     $checkStmt->close();
     
-    // Insert new location
     $insertSql = "INSERT INTO location (Site) VALUES (?)";
     $insertStmt = $con->prepare($insertSql);
     

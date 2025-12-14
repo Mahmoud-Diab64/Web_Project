@@ -475,7 +475,6 @@
                 <p>Select a historical period to begin your journey</p>
             </div>
             
-            <!-- Search Box -->
             <div class="search-container" data-aos="fade-up">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
@@ -488,9 +487,7 @@
                 </div>
             </div>
             
-            <!-- Categories Grid -->
             <div class="row g-4" id="categoriesGrid">
-                <!-- Loading State -->
                 <div class="col-12">
                     <div class="loading-spinner">
                         <div class="spinner-border" role="status">
@@ -560,26 +557,21 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-    // Initialize AOS
     AOS.init({
         duration: 1000,
         once: true,
         offset: 100
     });
 
-    // Store categories globally for search
     let allCategories = [];
 
-    // API Configuration
     const API_URL = '../Php/Category/ShowCategory.php';
     const UPLOAD_PATH = '../UploadsForCategory/';
 
-    // Load categories when page loads
     document.addEventListener('DOMContentLoaded', function () {
         loadCategories();
     });
 
-    // Load Categories from API
     async function loadCategories() {
         const grid = document.getElementById('categoriesGrid');
 
@@ -613,7 +605,6 @@
         }
     }
 
-    // Display Categories (DB ONLY)
     function displayCategories(categories) {
         const grid = document.getElementById('categoriesGrid');
 
@@ -661,7 +652,6 @@
         }).join('');
     }
 
-    // Search Categories
     function searchCategories() {
         const searchTerm = document
             .getElementById('searchInput')
@@ -683,7 +673,6 @@
         displayCategories(filtered);
     }
 
-    // Navbar scroll effect
     window.addEventListener('scroll', function () {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
@@ -700,7 +689,6 @@
         }
     });
 
-    // Scroll to top
     document.getElementById('scrollTop').addEventListener('click', function () {
         window.scrollTo({
             top: 0,
@@ -708,7 +696,6 @@
         });
     });
 
-    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');

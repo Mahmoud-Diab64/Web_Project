@@ -1,5 +1,4 @@
 <?php
-// Update_Artifacts.php
 $artId = isset($_GET['id']) ? $_GET['id'] : null;
 
 if (!$artId) {
@@ -15,7 +14,6 @@ if (!$artId) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Artifact - Egyptian Heritage</title>
 
-    <!-- Bootstrap & FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
@@ -52,7 +50,6 @@ if (!$artId) {
             </select>
         </div>
 
-        <!-- Location Dropdown -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-map-marker-alt"></i> Location <span class="required">*</span></label>
             <select name="Loc_Id" id="location" class="form-control" required>
@@ -60,31 +57,26 @@ if (!$artId) {
             </select>
         </div>
 
-        <!-- Description -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-align-left"></i> Description</label>
             <textarea class="form-control" name="Decrption" id="description" rows="3"></textarea>
         </div>
 
-        <!-- Short Description -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-quote-left"></i> Short Description</label>
             <input type="text" class="form-control" name="Short_Desc" id="shortDesc">
         </div>
 
-        <!-- Found At -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-map"></i> Found At</label>
             <input type="text" class="form-control" name="FoundAt" id="foundAt">
         </div>
 
-        <!-- Artifact Age -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-hourglass-half"></i> Artifact Age</label>
             <input type="text" class="form-control" name="Art_Age" id="artAge">
         </div>
 
-        <!-- Current Image Display -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-image"></i> Current Image</label>
             <div class="current-image" id="currentImage" style="text-align: center; margin-bottom: 10px;">
@@ -92,7 +84,6 @@ if (!$artId) {
             </div>
         </div>
 
-        <!-- Image Upload (Optional) -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-image"></i> Update Image (Optional)</label>
             <div class="upload-area" id="uploadArea">
@@ -122,7 +113,6 @@ if (!$artId) {
 <script>
 const artId = <?php echo $artId; ?>;
 
-// Fetch artifact data
 fetch(`../Php/Artifacts/get_artifact.php?id=${artId}`)
     .then(res => res.json())
     .then(data => {
@@ -142,7 +132,7 @@ fetch(`../Php/Artifacts/get_artifact.php?id=${artId}`)
         }
     });
 
-// Fetch Categories
+
 fetch("../Php/Category/ShowCategory.php")
     .then(res => res.json())
     .then(data => {
@@ -152,7 +142,6 @@ fetch("../Php/Category/ShowCategory.php")
             cat.innerHTML += `<option value="${c.Cate_Id}">${c.Cate_Name} (${c.artifact_count})</option>`;
         });
         
-        // Set current category after loading
         fetch(`../Php/Artifacts/get_artifact.php?id=${artId}`)
             .then(res => res.json())
             .then(data => {
@@ -162,7 +151,6 @@ fetch("../Php/Category/ShowCategory.php")
             });
     });
 
-// Fetch Locations
 fetch("../Php/Location/get_all_Locations.php")
     .then(res => res.json())
     .then(data => {
@@ -175,7 +163,6 @@ fetch("../Php/Location/get_all_Locations.php")
             });
         }
         
-        // Set current location after loading
         fetch(`../Php/Artifacts/get_artifact.php?id=${artId}`)
             .then(res => res.json())
             .then(data => {
@@ -185,7 +172,6 @@ fetch("../Php/Location/get_all_Locations.php")
             });
     });
 
-// Image Upload Preview
 const uploadArea = document.getElementById('uploadArea');
 const fileInput = document.getElementById('fileInput');
 const fileName = document.getElementById('fileName');

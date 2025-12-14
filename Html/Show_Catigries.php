@@ -96,7 +96,6 @@
     </div>
 
     <script>
-        // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
         
@@ -112,16 +111,13 @@
             }
         }
 
-        // عنوان الـ PHP file حسب مكانه عندك
         const API_URL = '../Php/Category/ShowCategory.php';
         const UPLOAD_PATH = '../UploadsForCategory/';
 
         let allCategories = [];
 
-        // Load categories on page load
         window.addEventListener('DOMContentLoaded', loadCategories);
 
-        // Search functionality
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filtered = allCategories.filter(cat => 
@@ -213,7 +209,6 @@
         }
 
         function editCategory(id) {
-            // Redirect to edit page
             window.location.href = `EditCatigory.php?id=${id}`;
         }
 
@@ -235,7 +230,7 @@
 
                 if (data.success) {
                     alert('Category deleted successfully!');
-                    loadCategories(); // Reload
+                    loadCategories(); 
                 } else {
                     alert('Error: ' + data.message);
                 }

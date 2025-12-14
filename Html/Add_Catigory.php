@@ -77,13 +77,10 @@
         const imagePreview = document.getElementById('imagePreview');
         const previewImg = document.getElementById('previewImg');
 
-        // Click to upload
         uploadArea.addEventListener('click', () => fileInput.click());
 
-        // File input change
         fileInput.addEventListener('change', handleFile);
 
-        // Drag and drop
         uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadArea.classList.add('dragover');
@@ -107,11 +104,9 @@
         function handleFile() {
             const file = fileInput.files[0];
             if (file) {
-                // Show file name
                 fileName.textContent = file.name;
                 fileName.style.display = 'block';
 
-                // Show preview
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     previewImg.src = e.target.result;
@@ -121,7 +116,6 @@
             }
         }
 
-        // Form validation
         document.querySelector('form').addEventListener('submit', (e) => {
             const nameInput = document.querySelector('input[name="Name"]');
             const fileInput = document.getElementById('fileInput');
@@ -139,7 +133,6 @@
                 return;
             }
 
-            // Check file size (5MB)
             if (fileInput.files[0].size > 5 * 1024 * 1024) {
                 e.preventDefault();
                 alert('Image size should be less than 5MB');

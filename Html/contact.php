@@ -219,14 +219,12 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 1000,
             once: true,
             offset: 100
         });
         
-        // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -235,7 +233,6 @@
                 navbar.classList.remove('scrolled');
             }
             
-            // Scroll to top button
             const scrollTop = document.getElementById('scrollTop');
             if (window.scrollY > 300) {
                 scrollTop.classList.add('show');
@@ -244,7 +241,6 @@
             }
         });
         
-        // Scroll to top functionality
         document.getElementById('scrollTop').addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
@@ -252,27 +248,21 @@
             });
         });
         
-        // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show success message
             const successMessage = document.getElementById('successMessage');
             successMessage.classList.add('show');
             
-            // Reset form
             this.reset();
             
-            // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
-            // Hide success message after 5 seconds
             setTimeout(function() {
                 successMessage.classList.remove('show');
             }, 5000);
         });
         
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');

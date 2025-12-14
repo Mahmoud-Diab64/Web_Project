@@ -94,7 +94,7 @@
             window.location.href = 'Show_Catigries.php#';
         }
 
-        // Load category data
+       
         window.addEventListener('DOMContentLoaded', loadCategoryData);
 
         async function loadCategoryData() {
@@ -105,15 +105,15 @@
                 if (data.success && data.category) {
                     const cat = data.category;
                     
-                    // Fill form
+                    
                     document.getElementById('cateId').value = cat.Cate_Id;
                     document.getElementById('cateName').value = cat.Cate_Name;
                     document.getElementById('oldImg').value = cat.Img;
                     
-                    // Show current image
+           
                     document.getElementById('currentImage').src = `../UploadsForCategory/${cat.Img}`;
                     
-                    // Show form, hide loading
+         
                     document.getElementById('loadingState').style.display = 'none';
                     document.getElementById('formContent').style.display = 'block';
                 } else {
@@ -127,7 +127,6 @@
             }
         }
 
-        // Upload area functionality
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
         const fileName = document.getElementById('fileName');
@@ -172,7 +171,6 @@
             }
         }
 
-        // Form submission
         document.getElementById('editForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             

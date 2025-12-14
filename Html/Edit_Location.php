@@ -136,7 +136,6 @@
     </main>
 
     <script>
-        // Get location ID from URL
         const urlParams = new URLSearchParams(window.location.search);
         const locationId = urlParams.get('id');
 
@@ -145,7 +144,6 @@
             window.location.href = 'Location.php';
         }
 
-        // Load location data when page loads
         window.addEventListener('DOMContentLoaded', loadLocationData);
 
         async function loadLocationData() {
@@ -156,12 +154,10 @@
                 if (data.success && data.data) {
                     const location = data.data;
                     
-                    // Fill form with data
                     document.getElementById('locId').value = location.id;
                     document.getElementById('locationId').textContent = location.id;
                     document.getElementById('siteName').value = location.site;
                     
-                    // Hide loading, show form
                     document.getElementById('loadingState').style.display = 'none';
                     document.getElementById('formContent').style.display = 'block';
                 } else {
@@ -190,7 +186,6 @@
                     body: formData
                 });
                 
-                // Check if response is JSON
                 const contentType = response.headers.get('content-type');
                 if (contentType && contentType.includes('application/json')) {
                     const data = await response.json();
@@ -202,7 +197,6 @@
                         alert('Error: ' + data.message);
                     }
                 } else {
-                    // If not JSON, it's the old script with alerts
                     alert('Location updated successfully! ✅');
                     window.location.href = 'Location.php';
                 }

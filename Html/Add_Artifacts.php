@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Artifact - Egyptian Heritage</title>
 
-    <!-- Bootstrap & FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
@@ -28,13 +27,11 @@
 
     <form action="../Php/Artifacts/artifacts.php" method="POST" enctype="multipart/form-data">
 
-        <!-- Artifact Name -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-tag"></i> Artifact Name <span class="required">*</span></label>
             <input type="text" class="form-control" name="Name" placeholder="Artifact Name" required>
         </div>
 
-        <!-- Category Dropdown -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-layer-group"></i> Category <span class="required">*</span></label>
             <select name="Cate_Id" id="category" class="form-control" required>
@@ -42,7 +39,6 @@
             </select>
         </div>
 
-        <!-- Location Dropdown -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-map-marker-alt"></i> Location <span class="required">*</span></label>
             <select name="Loc_Id" id="location" class="form-control" required>
@@ -50,13 +46,11 @@
             </select>
         </div>
 
-        <!-- Description -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-align-left"></i> Description</label>
             <textarea class="form-control" name="Decrption" rows="3"></textarea>
         </div>
 
-        <!-- Short Description -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-quote-left"></i> Short Description</label>
             <input type="text" class="form-control" name="Short_Desc">
@@ -126,7 +120,6 @@ fetch("../Php/Location/get_all_Locations.php")
         }
     });
 
-// Image Upload Preview
 const uploadArea = document.getElementById('uploadArea');
 const fileInput = document.getElementById('fileInput');
 const fileName = document.getElementById('fileName');

@@ -80,7 +80,6 @@ $totalLocations  = $con->query("SELECT COUNT(*) AS total FROM location")->fetch_
 
     <main class="main-content">
 
-        <!-- ========= Dashboard Section ========= -->
         <div id="dashboard-section" class="section-card active">
             <div class="top-bar">
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
@@ -138,8 +137,7 @@ $totalLocations  = $con->query("SELECT COUNT(*) AS total FROM location")->fetch_
             </div>
         </div>
 
-        <!-- باقي الصفحات زي ما هي -->
-        <!-- Users Section -->
+        
         <div id="users-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-users me-2"></i>Manage Users</h3>
@@ -159,7 +157,6 @@ $totalLocations  = $con->query("SELECT COUNT(*) AS total FROM location")->fetch_
             </div>
         </div>
 
-        <!-- Artifacts Section -->
         <div id="artifacts-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-monument me-2"></i>Manage Heritage Artifacts</h3>
@@ -179,7 +176,6 @@ $totalLocations  = $con->query("SELECT COUNT(*) AS total FROM location")->fetch_
             </div>
         </div>
 
-        <!-- Categories Section -->
         <div id="categories-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-th-large me-2"></i>Manage Categories</h3>
@@ -197,7 +193,6 @@ $totalLocations  = $con->query("SELECT COUNT(*) AS total FROM location")->fetch_
             </div>
         </div>
 
-        <!-- Locations Section -->
         <div id="locations-section" class="section-card">
             <div class="section-header">
                 <h3><i class="fas fa-map-marker-alt me-2"></i>Manage Locations</h3>

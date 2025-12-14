@@ -155,28 +155,7 @@
     }
 
     async function deleteArtifact(id, name){
-        // if(!confirm(`Are you sure you want to delete "${name}"?`)) return;
-
-        // try {
-        //     const formData = new FormData();
-        //     formData.append('Art_Id', id);
-
-        //     const response = await fetch('../Php/Artifacts/delete_artifact.php', {
-        //         method: 'POST',
-        //         body: formData
-        //     });
-
-        //     const data = await response.json();
-        //     if(data.success){
-        //         alert('Artifact deleted successfully!');
-        //         loadArtifacts();
-        //     } else {
-        //         alert('Error: ' + data.message);
-        //     }
-        // } catch(err){
-        //     alert('Error deleting artifact');
-        //     console.error(err);
-        // }
+       
         window.location.href = `Delete_Artifacts.php?id=${id}`;
     }
 </script>

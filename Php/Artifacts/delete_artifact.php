@@ -1,5 +1,4 @@
 <?php
-// delete_artifact.php
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -15,7 +14,6 @@ if (isset($_POST['submit'])) {
         exit();
     }
 
-    // Delete from database
     $sql = "DELETE FROM artifacts WHERE Art_Id = ?";
     $stmt = $con->prepare($sql);
     
@@ -28,7 +26,6 @@ if (isset($_POST['submit'])) {
     $stmt->bind_param("i", $artId);
 
     if ($stmt->execute()) {
-        // Delete image file if exists
         if (!empty($imgName) && file_exists("../../UploadsForArtifacts/" . $imgName)) {
             unlink("../../UploadsForArtifacts/" . $imgName);
         }

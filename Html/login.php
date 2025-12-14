@@ -91,7 +91,6 @@ togglePassword.addEventListener('click', function() {
     this.classList.toggle('fa-eye-slash');
 });
 
-// Input Focus Effects
 const inputs = document.querySelectorAll('.form-input');
 
 inputs.forEach(input => {

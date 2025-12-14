@@ -1,5 +1,4 @@
 <?php
-// update_artifact.php
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -16,19 +15,17 @@ if (isset($_POST['submit'])) {
 
     require_once '../Config/config.php';
 
-    // Check if new image uploaded
     if (!empty($_FILES['Img']['name'])) {
         $imgName = $_FILES['Img']['name'];
         $tmpName = $_FILES['Img']['tmp_name'];
         $folder  = "../../UploadsForArtifacts/" . $imgName;
 
         if (move_uploaded_file($tmpName, $folder)) {
-            // Delete old image if exists
+           
             if (!empty($oldImg) && file_exists("../../UploadsForArtifacts/" . $oldImg)) {
                 unlink("../../UploadsForArtifacts/" . $oldImg);
             }
             
-            // Update with new image - using correct column names
             $sql = "UPDATE artifacts SET 
                     Loc_Id = ?, 
                     Cate_Id = ?, 
@@ -57,7 +54,6 @@ if (isset($_POST['submit'])) {
             exit();
         }
     } else {
-        // Update without changing image - using correct column names
         $sql = "UPDATE artifacts SET 
                 Loc_Id = ?, 
                 Cate_Id = ?, 
