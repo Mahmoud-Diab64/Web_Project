@@ -560,209 +560,167 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
 
-        // Store categories globally for search
-        let allCategories = []
+    // Store categories globally for search
+    let allCategories = [];
 
-        // API Configuration
-        const API_URL = '../Php/Category/ShowCategory.php';
-        const UPLOAD_PATH = '../UploadsForCategory/';
+    // API Configuration
+    const API_URL = '../Php/Category/ShowCategory.php';
+    const UPLOAD_PATH = '../UploadsForCategory/';
 
-        // Category icons mapping
-        const categoryIcons = {
-            'pharaonic': 'fa-monument',
-            'roman': 'fa-columns',
-            'islamic': 'fa-mosque',
-            'coptic': 'fa-cross',
-            'modern': 'fa-city',
-            'museum': 'fa-university',
-            'default': 'fa-landmark'
-        };
+    // Load categories when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+        loadCategories();
+    });
 
-        // Category images (default fallbacks)
-        const categoryImages = [
-            'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?q=80&w=800',
-            'https://images.unsplash.com/photo-1565594101833-286ae6163351?q=80&w=800',
-            'https://images.unsplash.com/photo-1553913861-c0fddf26bc71?q=80&w=800',
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR616L_yM-4eICl3P66r4yK5yQYwV3Cg7C3hA&s',
-            'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=800',
-            'https://images.unsplash.com/photo-1590423021966-234237748873?q=80&w=800'
-        ];
+    // Load Categories from API
+    async function loadCategories() {
+        const grid = document.getElementById('categoriesGrid');
 
-        // Load categories when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadCategories();
-        });
+        try {
+            const response = await fetch(API_URL);
+            const data = await response.json();
 
-        // Load Categories from API
-        async function loadCategories() {
-            const grid = document.getElementById('categoriesGrid');
-            
-            try {
-                const response = await fetch(API_URL);
-                const data = await response.json();
-                
-                console.log('API Response:', data); // For debugging
-                
-                if (data.success && data.categories && data.categories.length > 0) {
-                    allCategories = data.categories;
-                    displayCategories(allCategories);
-                } else {
-                    grid.innerHTML = `
-                        <div class="col-12">
-                            <div class="empty-state">
-                                <i class="fas fa-folder-open"></i>
-                                <h3>No Categories Found</h3>
-                                <p>Check back later for new categories</p>
-                            </div>
-                        </div>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error loading categories:', error);
-                grid.innerHTML = `
-                    <div class="col-12">
-                        <div class="empty-state">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <h3>Error Loading Categories</h3>
-                            <p>Please try again later</p>
-                        </div>
-                    </div>
-                `;
-            }
-        }
+            console.log('API Response:', data);
 
-        // Display Categories
-        function displayCategories(categories) {
-            const grid = document.getElementById('categoriesGrid');
-            
-            if (categories.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-12">
-                        <div class="empty-state">
-                            <i class="fas fa-search"></i>
-                            <h3>No Results Found</h3>
-                            <p>Try a different search term</p>
-                        </div>
-                    </div>
-                `;
-                return;
-            }
-            
-            grid.innerHTML = categories.map((category, index) => {
-                const icon = getIconForCategory(category.Cate_Name);
-                
-                // Use image from database (Img column), fallback to default
-                let image;
-                if (category.Img && category.Img.trim() !== '') {
-                    image = UPLOAD_PATH + category.Img;
-                } else {
-                    image = categoryImages[index % categoryImages.length];
-                }
-                
-                const artifactCount = category.artifact_count || 0;
-                
-                return `
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="${(index % 3) * 100}">
-                        <div class="category-card" data-category="${category.Cate_Name.toLowerCase()}">
-                            <div class="card-img-wrapper">
-                                <img src="${image}" 
-                                     alt="${category.Cate_Name}" 
-                                     onerror="this.onerror=null; this.src='${categoryImages[index % categoryImages.length]}';">
-                                <div class="card-img-overlay-icon">
-                                    <i class="fas ${icon}"></i>
-                                </div>
-                                <div class="artifact-badge">
-                                    ${artifactCount} Artifacts
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h3>${category.Cate_Name}</h3>
-                                <p>${category.Cate_Description || 'Explore this fascinating period of Egyptian history'}</p>
-                                <a href="artifacts.php?category=${category.Cate_Id}" class="card-link">
-                                    View Artifacts <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // Get icon for category
-        function getIconForCategory(categoryName) {
-            const name = categoryName.toLowerCase();
-            
-            for (const [key, icon] of Object.entries(categoryIcons)) {
-                if (name.includes(key)) {
-                    return icon;
-                }
-            }
-            
-            return categoryIcons.default;
-        }
-
-        // Search Categories
-        function searchCategories() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-            
-            if (searchTerm === '') {
+            if (data.success && data.categories && data.categories.length > 0) {
+                allCategories = data.categories;
                 displayCategories(allCategories);
-                return;
+            } else {
+                grid.innerHTML = `
+                    <div class="col-12">
+                        <div class="empty-state">
+                            <h3>No Categories Found</h3>
+                        </div>
+                    </div>
+                `;
             }
-            
-            const filtered = allCategories.filter(category => 
-                category.Cate_Name.toLowerCase().includes(searchTerm) ||
-                (category.Cate_Description && category.Cate_Description.toLowerCase().includes(searchTerm))
-            );
-            
-            displayCategories(filtered);
+        } catch (error) {
+            console.error('Error loading categories:', error);
+            grid.innerHTML = `
+                <div class="col-12">
+                    <div class="empty-state">
+                        <h3>Error Loading Categories</h3>
+                    </div>
+                </div>
+            `;
         }
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+    }
+
+    // Display Categories (DB ONLY)
+    function displayCategories(categories) {
+        const grid = document.getElementById('categoriesGrid');
+
+        if (categories.length === 0) {
+            grid.innerHTML = `
+                <div class="col-12">
+                    <div class="empty-state">
+                        <h3>No Results Found</h3>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        grid.innerHTML = categories.map(category => {
+
+            let imageHtml = '';
+
+            if (category.Img && category.Img.trim() !== '') {
+                imageHtml = `
+                    <div class="card-img-wrapper">
+                        <img src="${UPLOAD_PATH + category.Img}"
+                            alt="${category.Cate_Name}">
+                    </div>
+                `;
             }
-            
-            // Scroll to top button
-            const scrollTop = document.getElementById('scrollTop');
-            if (window.scrollY > 300) {
-                scrollTop.classList.add('show');
-            } else {
-                scrollTop.classList.remove('show');
+
+            return `
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="category-card">
+
+                        ${imageHtml}
+
+                        <div class="card-body">
+                            <h3>${category.Cate_Name}</h3>
+                            <p>${category.Cate_Description || ''}</p>
+
+                            <a href="Home.php?category=${category.Cate_Id}" class="card-link">
+                                View Artifacts
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Search Categories
+    function searchCategories() {
+        const searchTerm = document
+            .getElementById('searchInput')
+            .value
+            .toLowerCase()
+            .trim();
+
+        if (searchTerm === '') {
+            displayCategories(allCategories);
+            return;
+        }
+
+        const filtered = allCategories.filter(category =>
+            category.Cate_Name.toLowerCase().includes(searchTerm) ||
+            (category.Cate_Description &&
+             category.Cate_Description.toLowerCase().includes(searchTerm))
+        );
+
+        displayCategories(filtered);
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        const scrollTop = document.getElementById('scrollTop');
+        if (window.scrollY > 300) {
+            scrollTop.classList.add('show');
+        } else {
+            scrollTop.classList.remove('show');
+        }
+    });
+
+    // Scroll to top
+    document.getElementById('scrollTop').addEventListener('click', function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
-        
-        // Scroll to top functionality
-        document.getElementById('scrollTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    });
+</script>
+
 </body>
 </html>

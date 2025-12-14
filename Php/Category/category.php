@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
         }
 
         $stmt->close();
-        $conn->close();
+        $con->close();
 
     } else {
         echo "<script>alert('Error uploading image');</script>";

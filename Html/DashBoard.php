@@ -58,7 +58,7 @@ $totalLocations  = $con->query("SELECT COUNT(*) AS total FROM location")->fetch_
             </li>
             
             <li class="nav-item">
-                <a href="Show_Catigries" class="nav-link" data-section="categories">
+                <a href="Show_Catigries.php" class="nav-link" data-section="categories">
                     <i class="fas fa-th-large"></i>
                     <span>Manage Categories</span>
                 </a>
