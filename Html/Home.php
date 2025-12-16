@@ -376,7 +376,7 @@
                         <a class="nav-link" href="Home.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="artifacts.php">Artifacts</a>
+                        <a class="nav-link active" href="index.php">Catiogries</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
