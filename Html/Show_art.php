@@ -115,7 +115,7 @@
                     <h3 class="artifact-name">${a.Name}</h3>
                     <p><strong>Category:</strong> ${a.Cate_Name}</p>
                     <p><strong>Location:</strong> ${a.Loc_Name}</p>
-                    <p><strong>Description:</strong> ${a.Decrption}</p>
+                    <p><strong>Description:</strong> ${a.Descrption}</p>
                     <p><strong>Short Desc:</strong> ${a.Short_Desc}</p>
                     <p><strong>Found At:</strong> ${a.FoundAt}</p>
                     <p><strong>Age:</strong> ${a.Art_Age} years</p>

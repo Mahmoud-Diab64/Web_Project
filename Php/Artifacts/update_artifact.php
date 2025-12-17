@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $name        = $_POST['Name'];
     $locId       = $_POST['Loc_Id'];      
     $cateId      = $_POST['Cate_Id'];     
-    $desc        = $_POST['Descrption'];
+    $desc        = $_POST['desc'];        
     $shortDesc   = $_POST['Short_Desc'];
     $foundAt     = $_POST['FoundAt'];
     $artAge      = $_POST['Art_Age'];
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
                     WHERE Art_Id = ?";
 
             $stmt = $con->prepare($sql);
-            $stmt->bind_param("iissssiii",
+            $stmt->bind_param("iissssssi",  
                 $locId,
                 $cateId,
                 $name,
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
                 $artId
             );
         } else {
-            echo "<script>alert('Error uploading new image');</script>";
+            echo "<script>alert('Error uploading new image'); window.history.back();</script>";
             exit();
         }
     } else {
@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
                 WHERE Art_Id = ?";
 
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("iisssiii",
+        $stmt->bind_param("iisssssi",  
             $locId,
             $cateId,
             $name,
@@ -78,10 +78,9 @@ if (isset($_POST['submit'])) {
     }
 
     if ($stmt->execute()) {
-        echo "<script>alert('Artifact Updated Successfully');
-        window.location='../../Html/Show_art.php';</script>";
+        echo "<script>alert('Artifact Updated Successfully'); window.location='../../Html/Show_art.php';</script>";
     } else {
-        echo "<script>alert('Database Error: " . $stmt->error . "');</script>";
+        echo "<script>alert('Database Error: " . $stmt->error . "'); window.history.back();</script>";
     }
 
     $stmt->close();

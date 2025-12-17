@@ -57,9 +57,10 @@ if (!$artId) {
             </select>
         </div>
 
+        <!-- التصحيح الأساسي هنا: إزالة المسافة من name="desc " -->
         <div class="mb-4">
             <label class="form-label"><i class="fas fa-align-left"></i> Description</label>
-            <textarea class="form-control" name="Decrption" id="description" rows="3"></textarea>
+            <textarea class="form-control" name="desc" id="description" rows="3"></textarea>
         </div>
 
         <div class="mb-4">
