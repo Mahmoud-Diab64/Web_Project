@@ -26,6 +26,11 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" href="Home.php">Home</a>
+
+
+
+
+                        
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#categories">Categories</a>
